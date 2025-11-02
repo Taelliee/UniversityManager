@@ -175,8 +175,11 @@
             // 
             // viewToolStripMenuItem
             // 
-            viewToolStripMenuItem.BackColor = Color.MistyRose;
+            viewToolStripMenuItem.BackColor = Color.WhiteSmoke;
             viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { usersToolStripMenuItem, marksToolStripMenuItem });
+            viewToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            viewToolStripMenuItem.ForeColor = Color.Maroon;
+            viewToolStripMenuItem.ImageTransparentColor = Color.Transparent;
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Size = new Size(55, 24);
             viewToolStripMenuItem.Text = "View";
@@ -185,7 +188,7 @@
             // 
             usersToolStripMenuItem.BackColor = Color.MistyRose;
             usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            usersToolStripMenuItem.Size = new Size(224, 26);
+            usersToolStripMenuItem.Size = new Size(131, 26);
             usersToolStripMenuItem.Text = "Users";
             usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
             // 
@@ -193,21 +196,23 @@
             // 
             marksToolStripMenuItem.BackColor = Color.MistyRose;
             marksToolStripMenuItem.Name = "marksToolStripMenuItem";
-            marksToolStripMenuItem.Size = new Size(224, 26);
+            marksToolStripMenuItem.Size = new Size(131, 26);
             marksToolStripMenuItem.Text = "Marks";
             marksToolStripMenuItem.Click += marksToolStripMenuItem_Click;
             // 
             // selectToolStripMenuItem
             // 
-            selectToolStripMenuItem.BackColor = Color.Bisque;
+            selectToolStripMenuItem.BackColor = Color.WhiteSmoke;
             selectToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { averageGradePerSubjectToolStripMenuItem, numberOfMarksToolStripMenuItem, averageGradeForStudentToolStripMenuItem, searchStudentToolStripMenuItem });
+            selectToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            selectToolStripMenuItem.ForeColor = Color.Maroon;
             selectToolStripMenuItem.Name = "selectToolStripMenuItem";
             selectToolStripMenuItem.Size = new Size(63, 24);
             selectToolStripMenuItem.Text = "Select";
             // 
             // averageGradePerSubjectToolStripMenuItem
             // 
-            averageGradePerSubjectToolStripMenuItem.BackColor = Color.Bisque;
+            averageGradePerSubjectToolStripMenuItem.BackColor = Color.PowderBlue;
             averageGradePerSubjectToolStripMenuItem.Name = "averageGradePerSubjectToolStripMenuItem";
             averageGradePerSubjectToolStripMenuItem.Size = new Size(269, 26);
             averageGradePerSubjectToolStripMenuItem.Text = "Average grade per Subject";
@@ -215,7 +220,7 @@
             // 
             // numberOfMarksToolStripMenuItem
             // 
-            numberOfMarksToolStripMenuItem.BackColor = Color.Bisque;
+            numberOfMarksToolStripMenuItem.BackColor = Color.PowderBlue;
             numberOfMarksToolStripMenuItem.Name = "numberOfMarksToolStripMenuItem";
             numberOfMarksToolStripMenuItem.Size = new Size(269, 26);
             numberOfMarksToolStripMenuItem.Text = "Number of Marks";
@@ -223,7 +228,7 @@
             // 
             // averageGradeForStudentToolStripMenuItem
             // 
-            averageGradeForStudentToolStripMenuItem.BackColor = Color.Bisque;
+            averageGradeForStudentToolStripMenuItem.BackColor = Color.PowderBlue;
             averageGradeForStudentToolStripMenuItem.Name = "averageGradeForStudentToolStripMenuItem";
             averageGradeForStudentToolStripMenuItem.Size = new Size(269, 26);
             averageGradeForStudentToolStripMenuItem.Text = "Average grade for Student";
@@ -231,7 +236,7 @@
             // 
             // searchStudentToolStripMenuItem
             // 
-            searchStudentToolStripMenuItem.BackColor = Color.Bisque;
+            searchStudentToolStripMenuItem.BackColor = Color.PowderBlue;
             searchStudentToolStripMenuItem.Name = "searchStudentToolStripMenuItem";
             searchStudentToolStripMenuItem.Size = new Size(269, 26);
             searchStudentToolStripMenuItem.Text = "Search Student";

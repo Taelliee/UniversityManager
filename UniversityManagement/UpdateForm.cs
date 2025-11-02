@@ -13,12 +13,14 @@ namespace UniversityManagement
 {
     public partial class UpdateForm : Form
     {
+        private List<Person> uniPeople = University.GetInstance().GetUniPeople().ToList();
         public UpdateForm()
         {
             InitializeComponent();
 
-            namesComboBox.DataSource = University.GetInstance().GetUniPeople();
-            namesComboBox.DisplayMember = "Name";
+            studentsCheckBox.Checked = true;
+            teachersCheckBox.Checked = true;
+            LoadComboBox(uniPeople);
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -30,12 +32,11 @@ namespace UniversityManagement
 
         private void updateFormButton_Click(object sender, EventArgs e)
         {
-            var uni = University.GetInstance();
-            var selectedName = namesComboBox.Text;
+            Person? person = (Person)personComboBox.SelectedItem;
 
-            var person = uni.GetUniPeople().FirstOrDefault(p => p.Name == selectedName);
             if (person == null) return;
 
+            person.Name = nameTextBox.Text;
             person.Email = emailTextBox.Text;
             person.Phone = phoneTextBox.Text;
 
@@ -55,8 +56,9 @@ namespace UniversityManagement
 
         private void namesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (namesComboBox.SelectedItem is Person selectedPerson)
+            if (personComboBox.SelectedItem is Person selectedPerson)
             {
+                nameTextBox.Text = selectedPerson.Name;
                 emailTextBox.Text = selectedPerson.Email;
                 phoneTextBox.Text = selectedPerson.Phone;
                 emailTextBox.Enabled = true;
@@ -78,7 +80,6 @@ namespace UniversityManagement
                     EGNTextBox.Text = teacher.EGN;
                 }
             }
-
         }
 
         private void emailTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -120,5 +121,33 @@ namespace UniversityManagement
         {
             Validator.ValidateLength(e, EGNTextBox, 10, 10);
         }
+
+        private void LoadComboBox(IEnumerable<Person> people)
+        {
+            personComboBox.DataSource = people.ToList();
+            personComboBox.DisplayMember = "DisplayInfo";
+        }
+
+        private void UpdateForm_Load(object sender, EventArgs e)
+        {
+            uniPeople = University.GetInstance().GetUniPeople();
+            LoadComboBox(uniPeople);
+        }
+
+        private void FilterPeople()
+        {
+            var filtered = uniPeople.AsEnumerable();
+
+            if (studentsCheckBox.Checked && !teachersCheckBox.Checked)
+                filtered = filtered.OfType<Student>();
+            else if (!studentsCheckBox.Checked && teachersCheckBox.Checked)
+                filtered = filtered.OfType<Teacher>();
+
+            LoadComboBox(filtered);
+        }
+
+        private void studentsCheckBox_CheckedChanged(object sender, EventArgs e) => FilterPeople();
+
+        private void teachersCheckBox_CheckedChanged(object sender, EventArgs e) => FilterPeople();
     }
 }

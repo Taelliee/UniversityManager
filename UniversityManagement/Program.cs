@@ -16,6 +16,7 @@ namespace UniversityManagement
 
             UniversityFile.LoadUniPeopleFromFile();
             UniversityFile.LoadUniversitySubjectsFromFile();
+            UniversityFile.LoadGradesFromFile();
 
             Application.Run(new MainForm());
         }

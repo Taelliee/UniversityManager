@@ -18,7 +18,7 @@ namespace UniversityManagement
             InitializeComponent();
 
             studentComboBox.DataSource = University.GetInstance().GetUniPeople().OfType<Student>().ToList();
-            studentComboBox.DisplayMember = "Name";
+            studentComboBox.DisplayMember = "DisplayInfo";
 
             subjectComboBox.DataSource = University.GetInstance().GetUniversitySubjects().ToList();
             subjectComboBox.DisplayMember = "SubjectName";
@@ -42,9 +42,14 @@ namespace UniversityManagement
 
         private void addMarkButton_Click(object sender, EventArgs e)
         {
-            Mark mark = new Mark(new UniversitySubject(subjectComboBox.Text), (MarkType)markComboBox.SelectedItem);
+            Mark mark = new Mark((UniversitySubject)subjectComboBox.SelectedItem, (MarkType)markComboBox.SelectedItem);
             Student selectedStudent = (Student)studentComboBox.SelectedItem;
             selectedStudent.AddMark(mark);
+        }
+
+        private void AddMarkForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            UniversityFile.SaveGradesToFile();
         }
     }
 }

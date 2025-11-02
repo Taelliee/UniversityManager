@@ -18,7 +18,7 @@ namespace UniversityManagement
             InitializeComponent();
 
             studentComboBox.DataSource = University.GetInstance().GetUniPeople().OfType<Student>().ToList();
-            studentComboBox.DisplayMember = "Name";
+            studentComboBox.DisplayMember = "DisplayInfo";
 
             subjectComboBox.DataSource = University.GetInstance().GetUniversitySubjects().ToList();
             subjectComboBox.DisplayMember = "SubjectName";
@@ -56,12 +56,17 @@ namespace UniversityManagement
             UniversitySubject subject = (UniversitySubject)subjectComboBox.SelectedItem;
 
             List<Mark> marksForSubject = student.GetMarks()
-                                         .Where(m => m.UniversitySubject.SubjectName == subject.SubjectName)
+                                         .Where(m => m.UniversitySubject == subject)
                                          .OrderByDescending(m => (int)m.MarkType)
                                          .ToList();
 
             markComboBox.DataSource = marksForSubject;
             markComboBox.DisplayMember = nameof(Mark.MarkType);
+        }
+
+        private void studentComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitializeMarkComboBox();
         }
     }
 }

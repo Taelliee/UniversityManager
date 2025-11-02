@@ -11,11 +11,15 @@ namespace UniversityManagement.models
     {
         private static string peopleFilePath = "university_people.txt";
         private static string subjectsFilePath = "university_subjects.txt";
+        private static string gradesFilePath = "university_grades.txt";
+
+        private static StreamWriter writer;
+        private static StreamReader reader;
         public static void SaveUniPeopleToFile()
         {
-            using (StreamWriter writer = new StreamWriter(peopleFilePath))
+            using (writer = new StreamWriter(peopleFilePath))
             {
-                foreach (var person in University.GetInstance().GetUniPeople())
+                foreach (Person person in University.GetInstance().GetUniPeople())
                 {
                     if (person is Student student)
                     {
@@ -34,9 +38,9 @@ namespace UniversityManagement.models
             if (!File.Exists(peopleFilePath))
                 return;
 
-            using (StreamReader reader = new StreamReader(peopleFilePath))
+            using (reader = new StreamReader(peopleFilePath))
             {
-                string line;
+                string? line;
                 while ((line = reader.ReadLine()) != null)
                 {
                     string[] attributes = line.Split('|');
@@ -69,12 +73,70 @@ namespace UniversityManagement.models
 
             using (StreamReader reader = new StreamReader(subjectsFilePath))
             {
-                string line;
+                string? line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    University.GetInstance().AddUniversitySubjects(new UniversitySubject(line));
+                    University.GetInstance().AddUniversitySubject(new UniversitySubject(line));
                 }
             }
         }
+
+        public static void SaveGradesToFile() {
+            using (writer = new StreamWriter(gradesFilePath))
+            {
+                List<Student> students = University.GetInstance().GetUniPeople().OfType<Student>().ToList();
+                foreach (Student student in students) {
+                    foreach (Mark mark in student.GetMarks())
+                    {
+                        writer.WriteLine($"{student.FIV}|{mark.UniversitySubject.SubjectName}|{mark.MarkType}");
+                    }
+                }
+            }
+        }
+
+        public static void LoadGradesFromFile()
+        {
+            if (!File.Exists(gradesFilePath))
+                return;
+
+            using (reader = new StreamReader(gradesFilePath))
+            {
+                string? line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] attributes = line.Split('|');
+                    if (attributes.Length < 3)
+                        continue;
+
+                    string FIV = attributes[0];
+                    string subjectName = attributes[1];
+
+                    UniversitySubject? subject = University.GetInstance()
+                        .GetUniversitySubjects()
+                        .FirstOrDefault(s => s.SubjectName == subjectName);
+
+                    if (subject == null)
+                    {
+                        subject = new UniversitySubject(subjectName);
+                        University.GetInstance().AddUniversitySubject(subject);
+                    }
+
+                    if (!Enum.TryParse(attributes[2], out MarkType markType))
+                        continue;
+
+                    Mark mark = new Mark(subject, markType);
+
+                    Student? student = University.GetInstance().GetUniPeople()
+                        .OfType<Student>()
+                        .FirstOrDefault(s => s.FIV.ToString() == FIV);
+
+                    if (student != null)
+                    {
+                        student.AddMark(mark);
+                    }
+                }
+            }
+        }
+
     }
 }

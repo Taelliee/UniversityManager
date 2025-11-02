@@ -162,7 +162,6 @@ namespace UniversityManagement
         {
             SelectForm selectForm = new SelectForm(SelectOption.AvgSubjectGrade);
             selectForm.Show();
-            //UniversitySubject subject = (UniversitySubject)selectComboBox.SelectedItem;
         }
 
         private void numberOfMarksToolStripMenuItem_Click(object sender, EventArgs e)

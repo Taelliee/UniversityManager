@@ -20,6 +20,11 @@ namespace UniversityManagement.models
 
         public int FIV {  get; set; }
 
+        public override string DisplayInfo
+        {
+            get { return $"{FIV} - {Name}"; }
+        }
+
         public void AddMark(Mark mark)
         { 
             marks.Add(mark); 
@@ -45,6 +50,27 @@ namespace UniversityManagement.models
         public List<Mark> GetMarks() 
         {
             return marks;
+        }
+
+        public double GetAverageGradeForSubject(UniversitySubject subject)
+        {
+            double avg = marks
+                .Where(m => m.UniversitySubject == subject)
+                .Select(m => (int)m.MarkType)
+                .DefaultIfEmpty(0)
+                .Average();
+
+            return Math.Round(avg, 2);
+        }
+
+        public double GetAverageGrade()
+        {
+            double avg = marks
+                .Select(m => (int)m.MarkType)
+                .DefaultIfEmpty(0)
+                .Average();
+
+            return Math.Round(avg, 2);
         }
     }
 }

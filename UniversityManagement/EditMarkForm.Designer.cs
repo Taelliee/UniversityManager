@@ -66,7 +66,7 @@
             subjectComboBox.FormattingEnabled = true;
             subjectComboBox.Location = new Point(166, 120);
             subjectComboBox.Name = "subjectComboBox";
-            subjectComboBox.Size = new Size(190, 28);
+            subjectComboBox.Size = new Size(232, 28);
             subjectComboBox.TabIndex = 24;
             subjectComboBox.SelectedIndexChanged += subjectComboBox_SelectedIndexChanged;
             // 
@@ -87,8 +87,9 @@
             studentComboBox.FormattingEnabled = true;
             studentComboBox.Location = new Point(166, 43);
             studentComboBox.Name = "studentComboBox";
-            studentComboBox.Size = new Size(190, 28);
+            studentComboBox.Size = new Size(232, 28);
             studentComboBox.TabIndex = 22;
+            studentComboBox.SelectedIndexChanged += studentComboBox_SelectedIndexChanged;
             // 
             // studentLabel
             // 
@@ -127,7 +128,7 @@
             editMarkButton.BackColor = Color.RosyBrown;
             editMarkButton.Font = new Font("Stencil", 13.8F);
             editMarkButton.ForeColor = Color.MistyRose;
-            editMarkButton.Location = new Point(53, 376);
+            editMarkButton.Location = new Point(94, 369);
             editMarkButton.Name = "editMarkButton";
             editMarkButton.Size = new Size(167, 41);
             editMarkButton.TabIndex = 29;
@@ -140,7 +141,7 @@
             backButton.BackColor = Color.RosyBrown;
             backButton.Font = new Font("Stencil", 13.8F);
             backButton.ForeColor = Color.MistyRose;
-            backButton.Location = new Point(239, 376);
+            backButton.Location = new Point(280, 369);
             backButton.Name = "backButton";
             backButton.Size = new Size(105, 41);
             backButton.TabIndex = 30;
@@ -153,7 +154,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
-            ClientSize = new Size(402, 450);
+            ClientSize = new Size(458, 450);
             Controls.Add(backButton);
             Controls.Add(editMarkButton);
             Controls.Add(changedMarkComboBox);

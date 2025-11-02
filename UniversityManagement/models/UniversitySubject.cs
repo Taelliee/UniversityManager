@@ -15,5 +15,19 @@ namespace UniversityManagement.models
 
         public string SubjectName { get; set; }
         //public Teacher Teacher { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is UniversitySubject other)
+            {
+                return SubjectName == other.SubjectName;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return SubjectName.GetHashCode();
+        }
     }
 }

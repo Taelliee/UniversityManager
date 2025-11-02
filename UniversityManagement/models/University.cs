@@ -37,7 +37,7 @@ namespace UniversityManagement.models
             return uniPeople;
         }
 
-        public void AddUniversitySubjects(UniversitySubject schoolSubject) 
+        public void AddUniversitySubject(UniversitySubject schoolSubject) 
         { 
             universitySubjects.Add(schoolSubject);
         }

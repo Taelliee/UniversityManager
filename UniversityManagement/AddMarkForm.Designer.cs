@@ -143,6 +143,7 @@
             Controls.Add(studentLabel);
             Name = "AddMarkForm";
             Text = "AddMarkForm";
+            FormClosing += AddMarkForm_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

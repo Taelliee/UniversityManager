@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UniversityManagement.models
 {
-    public class Person
+    public abstract class Person
     {
         public Person(string name, string email, string phone)
         {
@@ -18,6 +18,8 @@ namespace UniversityManagement.models
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone {  get; set; }
+
+        public abstract string DisplayInfo { get; }
 
     }
 }

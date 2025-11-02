@@ -15,5 +15,10 @@ namespace UniversityManagement.models
         }
 
         public string EGN { get; set; }
+
+        public override string DisplayInfo
+        {
+            get { return $"{EGN} - {Name}"; }
+        }
     }
 }
