@@ -79,7 +79,7 @@
             uniPeopleTable.Name = "uniPeopleTable";
             uniPeopleTable.RowCount = 1;
             uniPeopleTable.RowStyles.Add(new RowStyle());
-            uniPeopleTable.Size = new Size(940, 18);
+            uniPeopleTable.Size = new Size(942, 18);
             uniPeopleTable.TabIndex = 0;
             uniPeopleTable.Tag = "";
             // 
@@ -88,7 +88,7 @@
             EGNLabel.AutoSize = true;
             EGNLabel.Font = new Font("SimSun", 10.8F, FontStyle.Bold);
             EGNLabel.ForeColor = Color.Maroon;
-            EGNLabel.Location = new Point(825, 0);
+            EGNLabel.Location = new Point(828, 0);
             EGNLabel.Name = "EGNLabel";
             EGNLabel.Size = new Size(38, 18);
             EGNLabel.TabIndex = 4;
@@ -99,7 +99,7 @@
             FIVLabel.AutoSize = true;
             FIVLabel.Font = new Font("SimSun", 10.8F, FontStyle.Bold);
             FIVLabel.ForeColor = Color.Maroon;
-            FIVLabel.Location = new Point(701, 0);
+            FIVLabel.Location = new Point(703, 0);
             FIVLabel.Name = "FIVLabel";
             FIVLabel.Size = new Size(38, 18);
             FIVLabel.TabIndex = 3;
@@ -110,7 +110,7 @@
             phoneLabel.AutoSize = true;
             phoneLabel.Font = new Font("SimSun", 10.8F, FontStyle.Bold);
             phoneLabel.ForeColor = Color.Maroon;
-            phoneLabel.Location = new Point(588, 0);
+            phoneLabel.Location = new Point(590, 0);
             phoneLabel.Name = "phoneLabel";
             phoneLabel.Size = new Size(58, 18);
             phoneLabel.TabIndex = 2;
@@ -121,7 +121,7 @@
             emailLabel.AutoSize = true;
             emailLabel.Font = new Font("SimSun", 10.8F, FontStyle.Bold);
             emailLabel.ForeColor = Color.Maroon;
-            emailLabel.Location = new Point(305, 0);
+            emailLabel.Location = new Point(306, 0);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new Size(58, 18);
             emailLabel.TabIndex = 2;
@@ -154,7 +154,7 @@
             backButton.BackColor = Color.AntiqueWhite;
             backButton.Font = new Font("Stencil", 13.8F);
             backButton.ForeColor = Color.Maroon;
-            backButton.Location = new Point(815, 539);
+            backButton.Location = new Point(813, 661);
             backButton.Name = "backButton";
             backButton.Size = new Size(113, 44);
             backButton.TabIndex = 15;
@@ -169,7 +169,7 @@
             viewMenuStrip.Items.AddRange(new ToolStripItem[] { viewToolStripMenuItem, selectToolStripMenuItem, toolStripMenuItem1 });
             viewMenuStrip.Location = new Point(0, 0);
             viewMenuStrip.Name = "viewMenuStrip";
-            viewMenuStrip.Size = new Size(940, 28);
+            viewMenuStrip.Size = new Size(942, 28);
             viewMenuStrip.TabIndex = 16;
             viewMenuStrip.Text = "menuStrip1";
             // 
@@ -266,7 +266,7 @@
             marksTable.Name = "marksTable";
             marksTable.RowCount = 1;
             marksTable.RowStyles.Add(new RowStyle());
-            marksTable.Size = new Size(940, 18);
+            marksTable.Size = new Size(942, 18);
             marksTable.TabIndex = 17;
             marksTable.Tag = "";
             marksTable.Visible = false;
@@ -276,7 +276,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("SimSun", 10.8F, FontStyle.Bold);
             label3.ForeColor = Color.Maroon;
-            label3.Location = new Point(760, 0);
+            label3.Location = new Point(762, 0);
             label3.Name = "label3";
             label3.Size = new Size(58, 18);
             label3.TabIndex = 2;
@@ -287,7 +287,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("SimSun", 10.8F, FontStyle.Bold);
             label4.ForeColor = Color.Maroon;
-            label4.Location = new Point(383, 0);
+            label4.Location = new Point(384, 0);
             label4.Name = "label4";
             label4.Size = new Size(78, 18);
             label4.TabIndex = 2;
@@ -320,7 +320,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PeachPuff;
-            ClientSize = new Size(940, 595);
+            ClientSize = new Size(942, 729);
             Controls.Add(marksTable);
             Controls.Add(backButton);
             Controls.Add(uniPeopleTable);
